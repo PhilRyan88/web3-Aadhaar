@@ -7,6 +7,8 @@ contract Aadhar{
 
     }
     mapping(uint256=>Detail) public Details;
-    function Enter()
+    function Enter(uint256 _id, string memory _name, string memory _aadr )public view{
+
+    }
 
 }
