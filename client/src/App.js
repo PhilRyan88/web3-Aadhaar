@@ -69,6 +69,7 @@ const App = () => {
       <br />
       <span>District </span>
       <input type="text" />
+      <button>Submit</button>
     </div>
   );
 };
