@@ -52,15 +52,15 @@ const App = () => {
       <br />
       <br />
       <span>Name </span>
-      <input type="text" placeholder="name" />
+      <input type="text" placeholder="Enter Your Name" />
       <br />
       <br />
       <span>Age </span>
-      <input type="text" />
+      <input type="text" placeholder="Enter Your Age" />
       <br />
       <br />
       <span>Gender </span>
-      <input type="text" />
+      <input type="text" placeholder="Male or Female only" />
       <br />
       <br />
       <span>State </span>
