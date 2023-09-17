@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css";
 import { useEffect, useState } from "react";
 //import {useNavigate} from 'react-router-dom';
 const App = () => {
@@ -55,7 +56,7 @@ const App = () => {
       <br />
       <br />
       <span>Age </span>
-      <input type="date" />
+      <input type="text" />
       <br />
       <br />
       <span>Gender </span>
