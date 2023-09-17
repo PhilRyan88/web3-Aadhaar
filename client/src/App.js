@@ -14,7 +14,7 @@ const App = () => {
 
   async function connect() {
     window.ethereum
-      .reques({
+      .request({
         method: "eth_requestAccounts",
       })
       .then((accounts) => {
