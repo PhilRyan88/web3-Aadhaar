@@ -29,7 +29,9 @@ const App = () => {
     return (
       <div>
         {isWalletInstalled ? (
-          <button onClick={connect}>Connect</button>
+          <center>
+            <h1>Login </h1> <button onClick={connect}>Connect</button>
+          </center>
         ) : (
           <p>Install metamask</p>
         )}
@@ -43,9 +45,29 @@ const App = () => {
       </center>
       <br />
       <br />
-      <center>
-        <button>Connect Wallet</button>
-      </center>
+
+      <h3>Enter your details</h3>
+
+      <br />
+      <br />
+      <span>Name </span>
+      <input type="text" placeholder="name" />
+      <br />
+      <br />
+      <span>Age </span>
+      <input type="date" />
+      <br />
+      <br />
+      <span>Gender </span>
+      <input type="text" />
+      <br />
+      <br />
+      <span>State </span>
+      <input type="text" />
+      <br />
+      <br />
+      <span>District </span>
+      <input type="text" />
     </div>
   );
 };
