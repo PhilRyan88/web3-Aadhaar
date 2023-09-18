@@ -22,7 +22,7 @@ const App = () => {
 
   const myContract = new web3.eth.Contract(contractAbi, contractAddress);
 
-  async function Get(e) {
+  /*async function Get(e) {
     e.preventDefault();
 
     // const client = await myContract.methods.enter().call();
@@ -36,8 +36,27 @@ const App = () => {
     const trxReceipt = await myContract.methods
       .enter(name, age, gender, state, district)
       .send({ from: accounts[0], gasLimit: 500000 });
-    console.log(trxReceipt);
+    console.log(JSON.stringify(trxReceipt));
 
+    alert(`Your Web 3 Aadhaar has been minted !`);
+  }*/
+
+  async function Get(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("nameInput").value;
+    const age = document.getElementById("ageInput").value;
+    const gender = document.getElementById("genderInput").value;
+    const state = document.getElementById("stateInput").value;
+    const district = document.getElementById("districtInput").value; // Make sure to use .value to get the input's value
+
+    const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+
+    const trxReceipt = await myContract.methods
+      .enter(name, age, gender, state, district)
+      .send({ from: accounts[0], gasLimit: 500000 });
+
+    console.log(JSON.stringify(trxReceipt)); // Only stringify the relevant data, not the entire object
     alert(`Your Web 3 Aadhaar has been minted !`);
   }
 
