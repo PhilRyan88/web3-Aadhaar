@@ -1,10 +1,15 @@
 import React from "react";
+import ethers from "ethers";
 import "./App.css";
 import { useEffect, useState } from "react";
+import abi from "./Aadhar.json";
 //import {useNavigate} from 'react-router-dom';
 const App = () => {
   const [isWalletInstalled, setIsWalletInstalled] = useState(false); //for checking if metamask installed or not
   const [account, setAccount] = useState(null); // for checking connection status
+
+  const contractAddress = "0xF2407C2B86022e7d71C035338467472765f14A1E";
+  const contractABI = abi.abi;
 
   useEffect(() => {
     if (window.ethereum) {
