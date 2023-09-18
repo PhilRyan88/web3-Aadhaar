@@ -1,5 +1,5 @@
 import React from "react";
-import ethers from "ethers";
+//import ethers from "ethers";
 import "./App.css";
 import { useEffect, useState } from "react";
 //import abi from "./Aadhar.json";
@@ -18,7 +18,7 @@ const App = () => {
 
   const web3 = new Web3(ethereum);
 
-  const [value, setValue] = useState(0);
+  // const [value, setValue] = useState(0);
 
   const myContract = new web3.eth.Contract(contractAbi, contractAddress);
 
@@ -32,8 +32,13 @@ const App = () => {
     const gender = document.getElementById("genderInput").value;
     const state = document.getElementById("stateInput").value;
     const district = document.getElementById("districtInput");
+    const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+    const trxReceipt = await myContract.methods
+      .enter(name, age, gender, state, district)
+      .send({ from: accounts[0], gasLimit: 500000 });
+    console.log(trxReceipt);
 
-    console.log(name, age, gender, state, district);
+    alert(`Your Web 3 Aadhaar has been minted !`);
   }
 
   useEffect(() => {
@@ -82,7 +87,7 @@ const App = () => {
       <br />
       <br />
       <span>Name </span>
-      <input type="text" placeholder="Enter Your Name" id="name" />
+      <input type="text" placeholder="Enter Your Name" id="nameInput" />
       <br />
       <br />
       <span>Age </span>
