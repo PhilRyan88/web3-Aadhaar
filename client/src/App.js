@@ -18,14 +18,22 @@ const App = () => {
 
   const web3 = new Web3(ethereum);
 
+  const [value, setValue] = useState(0);
+
   const myContract = new web3.eth.Contract(contractAbi, contractAddress);
 
   async function Get(e) {
     e.preventDefault();
 
-    const client = await myContract.methods.enter().call();
+    // const client = await myContract.methods.enter().call();
 
-    console.log(client);
+    const name = document.getElementById("nameInput").value;
+    const age = document.getElementById("ageInput").value;
+    const gender = document.getElementById("genderInput").value;
+    const state = document.getElementById("stateInput").value;
+    const district = document.getElementById("districtInput");
+
+    console.log(name, age, gender, state, district);
   }
 
   useEffect(() => {
@@ -74,24 +82,24 @@ const App = () => {
       <br />
       <br />
       <span>Name </span>
-      <input type="text" placeholder="Enter Your Name" />
+      <input type="text" placeholder="Enter Your Name" id="name" />
       <br />
       <br />
       <span>Age </span>
-      <input type="text" placeholder="Enter Your Age" />
+      <input type="text" placeholder="Enter Your Age" id="ageInput" />
       <br />
       <br />
       <span>Gender </span>
-      <input type="text" placeholder="Male or Female only" />
+      <input type="text" placeholder="Male or Female only" id="genderInput" />
       <br />
       <br />
       <span>State </span>
-      <input type="text" />
+      <input type="text" id="stateInput" />
       <br />
       <br />
       <span>District </span>
-      <input type="text" />
-      <button>Submit</button>
+      <input type="text" id="districtInput" />
+      <button onClick={Get}>Submit</button>
     </div>
   );
 };
