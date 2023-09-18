@@ -2,15 +2,23 @@ import React from "react";
 import ethers from "ethers";
 import "./App.css";
 import { useEffect, useState } from "react";
-import abi from "./Aadhar.json";
+//import abi from "./Aadhar.json";
+import Web3 from "web3";
 //import {useNavigate} from 'react-router-dom';
 const App = () => {
   const [isWalletInstalled, setIsWalletInstalled] = useState(false); //for checking if metamask installed or not
   const [account, setAccount] = useState(null); // for checking connection status
 
-  const contractAddress = "0xF2407C2B86022e7d71C035338467472765f14A1E";
-  const contractABI = abi.abi;
+  const ethereum = window.ethereum;
 
+  const MyContractJSON = require("./Aadhar.json");
+
+  const contractAddress = "0xF2407C2B86022e7d71C035338467472765f14A1E";
+  const contractAbi = MyContractJSON.abi;
+
+  const web3 = new Web3(ethereum);
+
+  const myContract = new web3.eth.Contract(contractAbi, contractAddress);
   useEffect(() => {
     if (window.ethereum) {
       //checks if metamask extension is there
