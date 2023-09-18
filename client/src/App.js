@@ -13,12 +13,21 @@ const App = () => {
 
   const MyContractJSON = require("./Aadhar.json");
 
-  const contractAddress = "0xF2407C2B86022e7d71C035338467472765f14A1E";
+  const contractAddress = MyContractJSON.networks["5777"].address;
   const contractAbi = MyContractJSON.abi;
 
   const web3 = new Web3(ethereum);
 
   const myContract = new web3.eth.Contract(contractAbi, contractAddress);
+
+  async function Get(e) {
+    e.preventDefault();
+
+    const client = await myContract.methods.enter().call();
+
+    console.log(client);
+  }
+
   useEffect(() => {
     if (window.ethereum) {
       //checks if metamask extension is there
