@@ -11,6 +11,17 @@ const App = () => {
 
   const ethereum = window.ethereum;
 
+  const MyContractJSON = require("./Aadhar.json");
+
+  const contractAddress = MyContractJSON.networks["5777"].address;
+  const contractAbi = MyContractJSON.abi;
+
+  const web3 = new Web3(ethereum);
+
+  // const [value, setValue] = useState(0);
+
+  const myContract = new web3.eth.Contract(contractAbi, contractAddress);
+
   /*async function Get(e) {
     e.preventDefault();
 
