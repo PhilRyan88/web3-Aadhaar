@@ -52,13 +52,13 @@ const App = () => {
 
     const accounts = await ethereum.request({ method: "eth_requestAccounts" });
 
-    /*const trxReceipt = await myContract.methods
+    const trxReceipt = await myContract.methods
       .enter(name, age, gender, state, district)
       .send({ from: accounts[0], gasLimit: 500000 });
 
     console.log(JSON.stringify(trxReceipt)); // Only stringify the relevant data, not the entire object
     alert(`Your Web 3 Aadhaar has been minted !`);
-  }*/
+  }
 
   useEffect(() => {
     if (window.ethereum) {
