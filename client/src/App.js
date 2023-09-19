@@ -60,7 +60,12 @@ const App = () => {
     alert(`Your Web 3 Aadhaar has been minted !`);
   }
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (window.ethereum) {
+      //checks if metamask extension is there
+      setIsWalletInstalled(true); // if it's there then changes the initial value of false to true
+    }
+  }, []);
 
   async function connect() {
     window.ethereum
