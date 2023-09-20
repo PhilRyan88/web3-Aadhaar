@@ -40,13 +40,13 @@ const App = () => {
     // Convert BigInt values to regular numbers for serialization
     const serializedReceipt = {
       blockHash: trxReceipt.blockHash,
-      blockNumber: trxReceipt.blockNumber,
+      blockNumber: parseInt(trxReceipt.blockNumber), // Convert to a regular number
       from: trxReceipt.from,
       to: trxReceipt.to,
       transactionHash: trxReceipt.transactionHash,
-      transactionIndex: trxReceipt.transactionIndex,
-      cumulativeGasUsed: trxReceipt.cumulativeGasUsed.toNumber(),
-      gasUsed: trxReceipt.gasUsed.toNumber(),
+      transactionIndex: parseInt(trxReceipt.transactionIndex), // Convert to a regular number
+      cumulativeGasUsed: trxReceipt.cumulativeGasUsed.toString(), // Convert to a string
+      gasUsed: trxReceipt.gasUsed.toString(), // Convert to a string
       contractAddress: trxReceipt.contractAddress,
       logs: trxReceipt.logs,
       status: trxReceipt.status,
