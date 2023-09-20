@@ -22,33 +22,14 @@ const App = () => {
 
   const myContract = new web3.eth.Contract(contractAbi, contractAddress);
 
-  /*async function Get(e) {
-    e.preventDefault();
-
-    // const client = await myContract.methods.enter().call();
-
-    const name = document.getElementById("nameInput").value;
-    const age = document.getElementById("ageInput").value;
-    const gender = document.getElementById("genderInput").value;
-    const state = document.getElementById("stateInput").value;
-    const district = document.getElementById("districtInput");
-    const accounts = await ethereum.request({ method: "eth_requestAccounts" });
-    const trxReceipt = await myContract.methods
-      .enter(name, age, gender, state, district)
-      .send({ from: accounts[0], gasLimit: 500000 });
-    console.log(JSON.stringify(trxReceipt));
-
-    alert(`Your Web 3 Aadhaar has been minted !`);
-  }*/
-
   async function Get(e) {
     e.preventDefault();
 
     const name = document.getElementById("nameInput").value;
-    const age = document.getElementById("ageInput").value;
+    const age = parseInt(document.getElementById("ageInput").value); // Convert age to a regular number
     const gender = document.getElementById("genderInput").value;
     const state = document.getElementById("stateInput").value;
-    const district = document.getElementById("districtInput").value; // Make sure to use .value to get the input's value
+    const district = document.getElementById("districtInput").value;
 
     const accounts = await ethereum.request({ method: "eth_requestAccounts" });
 
@@ -56,7 +37,22 @@ const App = () => {
       .enter(name, age, gender, state, district)
       .send({ from: accounts[0], gasLimit: 500000 });
 
-    console.log(JSON.stringify(trxReceipt)); // Only stringify the relevant data, not the entire object
+    // Convert BigInt values to regular numbers for serialization
+    const serializedReceipt = {
+      blockHash: trxReceipt.blockHash,
+      blockNumber: trxReceipt.blockNumber,
+      from: trxReceipt.from,
+      to: trxReceipt.to,
+      transactionHash: trxReceipt.transactionHash,
+      transactionIndex: trxReceipt.transactionIndex,
+      cumulativeGasUsed: trxReceipt.cumulativeGasUsed.toNumber(),
+      gasUsed: trxReceipt.gasUsed.toNumber(),
+      contractAddress: trxReceipt.contractAddress,
+      logs: trxReceipt.logs,
+      status: trxReceipt.status,
+    };
+
+    console.log(JSON.stringify(serializedReceipt));
     alert(`Your Web 3 Aadhaar has been minted !`);
   }
 
