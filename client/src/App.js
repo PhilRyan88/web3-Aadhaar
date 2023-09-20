@@ -21,15 +21,22 @@ const App = () => {
   // const [value, setValue] = useState(0);
 
   const myContract = new web3.eth.Contract(contractAbi, contractAddress);
+  // Define a custom replacer function to convert BigInt values to strings
+  function bigIntReplacer(key, value) {
+    if (typeof value === "bigint") {
+      return value.toString();
+    }
+    return value;
+  }
 
   async function Get(e) {
     e.preventDefault();
 
     const name = document.getElementById("nameInput").value;
-    const age = document.getElementById("ageInput").value;
+    const age = parseInt(document.getElementById("ageInput").value);
     const gender = document.getElementById("genderInput").value;
     const state = document.getElementById("stateInput").value;
-    const district = document.getElementById("districtInput").value; // Make sure to use .value to get the input's value
+    const district = document.getElementById("districtInput").value;
 
     const accounts = await ethereum.request({ method: "eth_requestAccounts" });
 
@@ -37,7 +44,10 @@ const App = () => {
       .enter(name, age, gender, state, district)
       .send({ from: accounts[0], gasLimit: 500000 });
 
-    console.log(JSON.stringify(trxReceipt)); // Only stringify the relevant data, not the entire object
+    // Convert BigInt values to strings for serialization using the custom replacer
+    const serializedReceipt = JSON.stringify(trxReceipt, bigIntReplacer);
+
+    console.log(serializedReceipt);
     alert(`Your Web 3 Aadhaar has been minted !`);
   }
 
