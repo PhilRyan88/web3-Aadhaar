@@ -26,7 +26,7 @@ const App = () => {
     e.preventDefault();
 
     const name = document.getElementById("nameInput").value;
-    const age = parseInt(document.getElementById("ageInput").value); // Convert age to a regular number
+    const age = parseInt(document.getElementById("ageInput").value);
     const gender = document.getElementById("genderInput").value;
     const state = document.getElementById("stateInput").value;
     const district = document.getElementById("districtInput").value;
@@ -37,16 +37,16 @@ const App = () => {
       .enter(name, age, gender, state, district)
       .send({ from: accounts[0], gasLimit: 500000 });
 
-    // Convert BigInt values to regular numbers for serialization
+    // Convert BigInt values to strings for serialization
     const serializedReceipt = {
       blockHash: trxReceipt.blockHash,
-      blockNumber: parseInt(trxReceipt.blockNumber), // Convert to a regular number
+      blockNumber: trxReceipt.blockNumber.toString(),
       from: trxReceipt.from,
       to: trxReceipt.to,
       transactionHash: trxReceipt.transactionHash,
-      transactionIndex: parseInt(trxReceipt.transactionIndex), // Convert to a regular number
-      cumulativeGasUsed: trxReceipt.cumulativeGasUsed.toString(), // Convert to a string
-      gasUsed: trxReceipt.gasUsed.toString(), // Convert to a string
+      transactionIndex: trxReceipt.transactionIndex.toString(),
+      cumulativeGasUsed: trxReceipt.cumulativeGasUsed.toString(),
+      gasUsed: trxReceipt.gasUsed.toString(),
       contractAddress: trxReceipt.contractAddress,
       logs: trxReceipt.logs,
       status: trxReceipt.status,
