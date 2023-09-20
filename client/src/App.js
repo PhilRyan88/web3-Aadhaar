@@ -22,12 +22,6 @@ const App = () => {
 
   const myContract = new web3.eth.Contract(contractAbi, contractAddress);
   // Define a custom replacer function to convert BigInt values to strings
-  function bigIntReplacer(key, value) {
-    if (typeof value === "bigint") {
-      return value.toString();
-    }
-    return value;
-  }
 
   async function Get(e) {
     e.preventDefault();
@@ -45,9 +39,9 @@ const App = () => {
       .send({ from: accounts[0], gasLimit: 500000 });
 
     // Convert BigInt values to strings for serialization using the custom replacer
-    const serializedReceipt = JSON.stringify(trxReceipt, bigIntReplacer);
+    //
 
-    console.log(serializedReceipt);
+    console.log(trxReceipt);
     alert(`Your Web 3 Aadhaar has been minted !`);
   }
 
