@@ -65,9 +65,8 @@ const App = () => {
         alert("Something went wrong");
       });
   }
-  const view = () => {
-    const navigate = useNavigate();
-  };
+
+  const navigate = useNavigate();
 
   if (account === null) {
     return (
