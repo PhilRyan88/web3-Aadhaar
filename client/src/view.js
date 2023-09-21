@@ -1,7 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const view = () => {
-  return <div>Aadhaar view</div>;
+  const navigate = useNavigate();
+  return (
+    <div>
+      Aadhaar view
+      <button onClick={() => navigate("/ViewAadhaar")}>View Aadhaar</button>
+    </div>
+  );
 };
 
 export default view;
