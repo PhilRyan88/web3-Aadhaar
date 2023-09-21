@@ -85,9 +85,7 @@ const App = () => {
       </center>
       <br />
       <br />
-
       <h3>Enter your details</h3>
-
       <br />
       <br />
       <span>Name </span>
@@ -108,7 +106,10 @@ const App = () => {
       <br />
       <span>District </span>
       <input type="text" id="districtInput" />
-      <button onClick={Get}>Submit</button>
+      <button onClick={Get}>Submit</button>{" "}
+      <span>
+        <button>View Aadhaar</button>
+      </span>
     </div>
   );
 };
