@@ -4,7 +4,8 @@ import "./App.css";
 import { useEffect, useState } from "react";
 //import abi from "./Aadhar.json";
 import Web3 from "web3";
-//import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import view from "./view";
 const App = () => {
   const [isWalletInstalled, setIsWalletInstalled] = useState(false); //for checking if metamask installed or not
   const [account, setAccount] = useState(null); // for checking connection status
@@ -64,6 +65,9 @@ const App = () => {
         alert("Something went wrong");
       });
   }
+  const view = () => {
+    const navigate = useNavigate();
+  };
 
   if (account === null) {
     return (
@@ -108,7 +112,7 @@ const App = () => {
       <input type="text" id="districtInput" />
       <button onClick={Get}>Submit</button>{" "}
       <span>
-        <button>View Aadhaar</button>
+        <button onClick={() => navigate("/ViewAadhaar")}>View Aadhaar</button>
       </span>
     </div>
   );
