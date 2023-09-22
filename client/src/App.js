@@ -4,8 +4,8 @@ import "./App.css";
 import { useEffect, useState } from "react";
 //import abi from "./Aadhar.json";
 import Web3 from "web3";
-import { useNavigate } from "react-router-dom";
-import view from "./view";
+//import { useNavigate } from "react-router-dom";
+import View from "./view";
 const App = () => {
   const [isWalletInstalled, setIsWalletInstalled] = useState(false); //for checking if metamask installed or not
   const [account, setAccount] = useState(null); // for checking connection status
@@ -66,14 +66,13 @@ const App = () => {
       });
   }
 
-  const navigate = useNavigate();
-
   if (account === null) {
     return (
       <div>
         {isWalletInstalled ? (
           <center>
             <h1>Login </h1> <button onClick={connect}>Connect</button>
+            <View />
           </center>
         ) : (
           <p>Install metamask</p>
