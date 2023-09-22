@@ -1,4 +1,5 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 //import ethers from "ethers";
 import "./App.css";
 import { useEffect, useState } from "react";
@@ -72,7 +73,9 @@ const App = () => {
         {isWalletInstalled ? (
           <center>
             <h1>Login </h1> <button onClick={connect}>Connect</button>
-            <View />
+            <Routes>
+              <Route path="ViewAadhaar" element={<View />} />
+            </Routes>
           </center>
         ) : (
           <p>Install metamask</p>
