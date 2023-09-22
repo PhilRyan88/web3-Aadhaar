@@ -109,10 +109,7 @@ const App = () => {
       <br />
       <span>District </span>
       <input type="text" id="districtInput" />
-      <button onClick={Get}>Submit</button>{" "}
-      <span>
-        <button onClick={() => navigate("/ViewAadhaar")}>View Aadhaar</button>
-      </span>
+      <button onClick={Get}>Submit</button> <span></span>
     </div>
   );
 };

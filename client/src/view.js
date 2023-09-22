@@ -1,17 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const view = () => {
+function View() {
   const navigate = useNavigate();
-  const View = () => {
+
+  const ViewAadhaar = () => {
     navigate("/ViewAadhaar");
   };
+
   return (
     <div>
       Aadhaar view
-      <button onClick={() => View()}>View Aadhaar</button>
+      <button onClick={ViewAadhaar}>View Aadhaar</button>
     </div>
   );
-};
+}
 
-export default view;
+export default View;
