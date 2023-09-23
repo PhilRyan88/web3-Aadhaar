@@ -73,9 +73,6 @@ const App = () => {
         {isWalletInstalled ? (
           <center>
             <h1>Login </h1> <button onClick={connect}>Connect</button>
-            <Routes>
-              <Route path="ViewAadhaar" element={<View />} />
-            </Routes>
           </center>
         ) : (
           <p>Install metamask</p>
@@ -111,6 +108,9 @@ const App = () => {
       <br />
       <span>District </span>
       <input type="text" id="districtInput" />
+      <Routes>
+        <Route path="ViewAadhaar" element={<View />} />
+      </Routes>
       <button onClick={Get}>Submit</button> <span></span>
     </div>
   );
