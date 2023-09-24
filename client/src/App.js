@@ -5,7 +5,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 //import abi from "./Aadhar.json";
 import Web3 from "web3";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 //import { useNavigate } from "react-router-dom";
 //import View from "./view";
 const App = () => {
@@ -67,7 +67,7 @@ const App = () => {
         alert("Something went wrong");
       });
   }
-  const view = useNavigate();
+  // const view = useNavigate();
 
   if (account === null) {
     return (
@@ -112,10 +112,6 @@ const App = () => {
       <span>District </span>
       <input type="text" id="districtInput" />
       <button onClick={Get}>Submit</button>{" "}
-      <span>
-        {" "}
-        <button onClick={view("/ViewAadhaar")}>View </button>
-      </span>
     </div>
   );
 };
