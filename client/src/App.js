@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Web3 from "web3";
 //import { useNavigate } from "react-router-dom";
 //import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 //import View from "./view";
 const App = () => {
   const [isWalletInstalled, setIsWalletInstalled] = useState(false); //for checking if metamask installed or not
@@ -20,6 +21,7 @@ const App = () => {
   const contractAbi = MyContractJSON.abi;
 
   const web3 = new Web3(ethereum);
+  // const navigate = useNavigate();
 
   // const [value, setValue] = useState(0);
 
