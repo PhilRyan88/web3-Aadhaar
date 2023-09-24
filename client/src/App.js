@@ -112,6 +112,9 @@ const App = () => {
       <span>District </span>
       <input type="text" id="districtInput" />
       <button onClick={Get}>Submit</button>{" "}
+      <span>
+        <button>View</button>
+      </span>
     </div>
   );
 };
