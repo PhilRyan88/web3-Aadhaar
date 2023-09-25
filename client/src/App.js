@@ -9,7 +9,7 @@ import Web3 from "web3";
 //import { useNavigate } from "react-router-dom";
 //import { useNavigate } from "react-router-dom";
 //import View from "./view";
-const App = () => {
+function App() {
   const [isWalletInstalled, setIsWalletInstalled] = useState(false); //for checking if metamask installed or not
   const [account, setAccount] = useState(null); // for checking connection status
 
@@ -119,6 +119,6 @@ const App = () => {
       </span>
     </div>
   );
-};
+}
 
 export default App;
